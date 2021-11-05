@@ -1,3 +1,10 @@
+/**
+ * File Name: index file
+ * Name: Mahesh Kondragunta
+ * Student Id:301178524
+ * Webapp Name: books-app
+ * 
+ */
 // moddules for node and express
 let createError = require('http-errors');
 let express = require('express');
@@ -7,16 +14,20 @@ let logger = require('morgan');
 
 // import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
-// URI
-let DB = require('./db');
 
-mongoose.connect(process.env.URI || DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+let DB = require("./db");
+// URI
+mongoose
+  .connect(DB.URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("db connected"))
+  .catch((err) => console.log(err));
 
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
 mongoDB.once('open', ()=> {
   console.log("Connected to MongoDB...");
 });
+
 
 
 // define routers

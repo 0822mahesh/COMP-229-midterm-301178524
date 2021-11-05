@@ -1,6 +1,17 @@
+/**
+ * File Name: server file
+ * Name: Mahesh Kondragunta
+ * Student Id:301178524
+ * Webapp Name: books-app
+ * 
+ */
 let app = require('./server/config/app');
 let debug = require('debug')('comp308-w2019-midterm:server');
 let http = require('http');
+let mongoose = require("mongoose")
+
+//let mongoDB = mongoose.connection;
+
 
 /**
  * Get port from environment and store in Express.
